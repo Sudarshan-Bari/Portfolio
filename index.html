@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dynamic Portfolio - Sudarshan Pravin Bari</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    
+    
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5; /* Light gray background */
+      color: #2c3e50; /* Dark slate text color */
+    }
+    
+    /* Navbar Styling */
+.navbar {
+  background: linear-gradient(90deg, #6a11cb, #2575fc); /* Gradient background */
+  padding: 10px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #e74c3c;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #f5f5f5 !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ffeb3b !important; /* Bright yellow on hover */
+}
+
+.navbar-nav .nav-link {
+  color: #f5f5f5 !important;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e74c3c !important;
+}
+
+.navbar-nav .active {
+  background-color: #e74c3c;
+  color: #ffffff !important;
+  border-radius: 30px;
+}
+
+/* Search Bar */
+.navbar .search-bar {
+  margin-left: auto;
+  position: relative;
+}
+
+.search-input {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  padding: 6px 10px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #c0392b;
+}
+
+    
+    /* Hero Section */
+.hero-section {
+  position: relative;
+  background: linear-gradient(to right, #2980b9, #6dd5fa);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+  transform: rotate(45deg);
+  z-index: 0;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  z-index: 1;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  z-index: 1;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+
+.hero-btn {
+  background-color: #e74c3c;
+  color: #ffffff;
+  padding: 16px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.hero-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    
+    .about-img {
+      width: 350px;
+      height: 350px; /* Ensures it's a perfect circle */
+      border-radius: 50%;
+      object-fit: cover; /* Ensures the image fits perfectly inside the circle */
+      border: 8px solid #6a11cb; /* Adds a gradient border */
+      padding: 5px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+      transition: all 0.3s ease-in-out;
+      overflow: hidden; /* Ensures no overflow from the image */
+    }
+    
+    /* Hover effect */
+    .about-img:hover {
+      transform: scale(1.05) rotate(-3deg); /* Slight zoom and rotation on hover */
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+      border-color: #2575fc; /* Changes border color on hover */
+    }
+    
+    /* Optional glow effect on hover */
+    .about-img:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(102, 252, 241, 0.5);
+      pointer-events: none;
+    }
+    
+    
+    .skills-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .skills-list .skill {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-align: center;
+      width: 200px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .skills-list .skill:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .skills-list .skill:active {
+      transform: translateY(2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    .project-card {
+      margin-bottom: 30px;
+      border-radius: 15px;
+      border: 2px solid transparent;
+      background-color: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      border-color: #6a11cb; /* Add a border highlight on hover */
+    }
+    
+    .project-card img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    .project-card img:hover {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+    
+    .project-card .card-body {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #6a11cb, #2575fc);
+      color: #ffffff;
+    }
+    
+    .project-card .card-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .project-card .card-text {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    .project-card .card-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: #ffffff;
+      color: #6a11cb;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .project-card .card-btn:hover {
+      background-color: #6a11cb;
+      color: #ffffff;
+    }
+    
+    
+    .cv-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #f5f5f5;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .cv-link:hover {
+      background-color: #e74c3c;
+      color: white;
+    }
+    
+    .footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .footer-link {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: #e74c3c;
+    }
+    
+    .footer-link i {
+      margin-right: 5px;
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Sudarshan Pravin Bari</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Hi, I'm Sudarshan Pravin Bari</h1>
+      <p>A passionate Computer Engineering student eager to learn and grow.</p>
+      <a href="Sudarshan_resume.pdf" class="btn btn-light">View My CV</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container my-5">
+    <h2 class="section-title">About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center">
+        <img src="suda.jpg" alt="Sudarshan" class="about-img">
+      </div>
+      <div class="col-md-6">
+        <p><b>Hello! I'm Sudarshan, a Computer Engineering Student at R C Patel Institute of Technology. I love exploring new technologies and creating projects to enhance my skills.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="container my-5">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-list">
+      <div class="skill">Java</div>
+      <div class="skill">Spring</div>
+      <div class="skill">HTML/CSS</div>
+      <div class="skill">Python</div>
+      <div class="skill">SQL</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="container my-5">
+    <h2 class="section-title">Projects</h2>
+    <div class="row">
+      <!-- 6 Project Cards -->
+      <div class="col-md-4">
+        <div class="card project-card">
+          <img src="BookChef.png" class="card-img-top" alt="BookChef">
+          <div class="card-body">
+            <h5 class="card-title"><b>BookChef</b></h5>
+            <p>The BookChef Project is an online chef booking platform developed using Java. This system allows users to browse and book chefs for various occasions or personal cooking sessions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card project-card">
+          <img src="ExamOrg1.jpeg" class="card-img-top" alt="Online Exam">
+          <div class="card-body">
+            <h5 class="card-title"><b>Online Examination System</b></h5>
+            <p>The Online Examination System project I developed using Java is a web-based platform that allows efficient management of exams. It provides different roles for Admin, Teachers, and Students</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card project-card">
+          <img src="SocialMedia1.jpeg" class="card-img-top" alt="Talkzi">
+          <div class="card-body">
+            <h5 class="card-title"><b>Talkzi Social Media</b></h5>
+            <p>The Talkzi Social Media Platform is a web project built using Java, JSP, and MySQL. It allows users to sign up, log in, share posts, like, comment, and chat with others.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card project-card">
+          <img src="Inventory.png" class="card-img-top" alt="Inventory">
+          <div class="card-body">
+            <h5 class="card-title"><b>Inventory Management</b></h5>
+            <p>The Inventory Management System is a Java-based application designed to efficiently manage raw and processed materials. It includes features for adding, updating,viewing as well as issuing materials.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card project-card">
+          <img src="Amazon1.jpeg" class="card-img-top" alt="Bank">
+          <div class="card-body">
+            <h5 class="card-title"><b>Amazon Clone</b></h5>
+            <p>The Amazon Clone project is a simplified e-commerce website built using HTML and CSS to replicate the core UI features of Amazon's homepage. It includes a visually appealing layout with a responsive design. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+       
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV Section -->
+  
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 Sudarshan Pravin Bari. All Rights Reserved.</p>
+    <p>
+      <a href="https://github.com/Sudarshan-Bari" target="_blank" class="footer-link">
+        <i class="fab fa-github"></i> GitHub
+      </a> |
+      <a href="https://www.linkedin.com/in/sudarshan-bari-3b364b257/" target="_blank" class="footer-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a> |
+      <a href="https://x.com/bari_sudarshan?t=l3yHGJ5ItNa4b_vA01Ynaw&s=09" target="_blank" class="footer-link">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+    </p>
+  </footer>
+  
+  <!-- Font Awesome CDN -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
